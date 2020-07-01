@@ -286,28 +286,29 @@
 
                                 <% } %>
 
-                                    <% if (step.image) { %>
-                                <a href="#ss<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>"
+                                    <% if (step.image && step.image.length) { %>
+                                        <% _.each(step.image, function(image, imgIndex) { %>
+                                <a href="#ss<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %><%= imgIndex %>"
                                     data-toggle="collapse" class="toggle">Screenshot +</a>
-                                <div id="ss<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>"
+                                <div id="ss<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %><%= imgIndex %>"
                                     class="screenshot collapse">
                                     <pre class="info show-modal"
                                         data-toggle="modal"
                                         style="cursor: pointer"
-                                        data-target="#ss-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>">
+                                        data-target="#ss-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %><%= imgIndex %>">
                                         
                                         <img class="screenshot" style="height:100%;width:100%;display:block;"
-                                        id="ss-image-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>" src="<%= step.image %>"/>
+                                        id="ss-image-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %><%= imgIndex %>" src="<%= image %>"/>
                                 </div>
                                 <div class="screenshot collapse"
                                    style="cursor: pointer"
 
                                    data-toggle="modal"
-                                   data-target="#ss-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>">
+                                   data-target="#ss-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %><%= imgIndex %>">
 
                                 </div>
 
-                                <div class="modal fade" id="ss-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="ss-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %><%= imgIndex %>" tabindex="-1" role="dialog"
                                      aria-labelledby="stacktraceModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
@@ -322,7 +323,7 @@
 
                                             <div class="modal-body">
                                                 <img class="screenshot" style="height:100%;width:100%;"
-                                                     id="my-ss-images" src="<%= step.image %>"/>
+                                                     id="my-ss-images" src="<%= image %>"/>
                                             </div>
 
                                             <div class="modal-footer">
@@ -333,7 +334,7 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                    <% }); %>
                                 <% } %>
 
                                     <% } %>
