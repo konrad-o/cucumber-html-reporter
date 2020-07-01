@@ -289,7 +289,7 @@
                                     <% if (step.image && step.image.length) { %>
                                         <% _.each(step.image, function(image, imgIndex) { %>
                                 <a href="#ss<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %><%= imgIndex %>"
-                                    data-toggle="collapse" class="toggle">Screenshot +</a>
+                                    data-toggle="collapse" class="toggle">Screenshot <%= imgIndex + 1 %> +</a>
                                 <div id="ss<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %><%= imgIndex %>"
                                     class="screenshot collapse">
                                     <pre class="info show-modal"
@@ -317,7 +317,7 @@
                                                         aria-label="Close"><span aria-hidden="true">&times;</span>
                                                 </button>
                                                 <h4 class="modal-title" id="ss-modal-title">
-                                                    Screenshot
+                                                    Screenshot <%= imgIndex + 1 %>
                                                 </h4>
                                             </div>
 
